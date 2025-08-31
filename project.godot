@@ -11,6 +11,11 @@ config_version=5
 [application]
 
 config/name="Projectgame2d"
-run/main_scene="uid://cswdfl5lf743v"
+run/main_scene="uid://bq8e4hre0m3x"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080

@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cswdfl5lf743v"]
+[gd_scene load_steps=3 format=3 uid="uid://cswdfl5lf743v"]
+
+[ext_resource type="Texture2D" uid="uid://dyympmahxkwh1" path="res://PNG/Characters/Alien/alien_head.png" id="1_0biuj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mwb40"]
 
@@ -7,3 +9,7 @@
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mwb40")
 frame_progress = 0.333658
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_0biuj")
