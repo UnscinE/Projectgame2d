@@ -52,7 +52,8 @@ script = ExtResource("1_xw558")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.36, 0.36)
 sprite_frames = SubResource("SpriteFrames_jiwmj")
-animation = &"Idle"
+animation = &"Walk"
+frame_progress = 0.294142
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9.09495e-13, 0)
@@ -66,4 +67,17 @@ position = Vector2(5.96046e-07, 0)
 scale = Vector2(1.33782, 1.56189)
 shape = SubResource("RectangleShape2D_igvk4")
 
+[node name="DeathParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+lifetime = 0.6
+one_shot = true
+speed_scale = 1.2
+explosiveness = 1.0
+lifetime_randomness = 0.4
+emission_shape = 2
+emission_sphere_radius = 50.0
+direction = Vector2(0, 0)
+
+[connection signal="area_entered" from="Collision" to="." method="_on_collision_area_entered"]
 [connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]

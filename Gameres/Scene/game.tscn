@@ -5,8 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bt01moeeedokm" path="res://PNG/Other/skybox_top.png" id="3_xynwx"]
 [ext_resource type="Texture2D" uid="uid://4c6vcwwi1hn" path="res://Vector/vector_other.svg" id="4_ihjbk"]
 [ext_resource type="PackedScene" uid="uid://bpqvqmu00jsk2" path="res://Gameres/Scene/player.tscn" id="5_gc4qo"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mwb40"]
+[ext_resource type="PackedScene" uid="uid://gbqu4w42nar4" path="res://Gameres/Scene/enemy_1.tscn" id="6_xynwx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_odxwo"]
 texture = ExtResource("1_odxwo")
@@ -53,6 +52,7 @@ texture_region_size = Vector2i(128, 128)
 0:4/0 = 0
 1:4/0 = 0
 2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 3:4/0 = 0
 3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 4:4/0 = 0
@@ -145,10 +145,6 @@ sources/3 = SubResource("TileSetAtlasSource_ihjbk")
 
 [node name="Game" type="Node2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_mwb40")
-frame_progress = 0.333658
-
 [node name="Map_1" type="TileMap" parent="."]
 scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_capl4")
@@ -163,6 +159,7 @@ z_index = 1
 position = Vector2(50, 170)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+scale = Vector2(0.5, 0.5)
 limit_left = 0
 limit_bottom = 1080
 limit_smoothed = true
@@ -175,3 +172,23 @@ drag_right_margin = 0.4
 drag_bottom_margin = 0.4
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="Mob1" parent="." instance=ExtResource("6_xynwx")]
+position = Vector2(8214, -66)
+scale = Vector2(0.5, 0.5)
+
+[node name="Mob2" parent="." instance=ExtResource("6_xynwx")]
+position = Vector2(8831, -71)
+scale = Vector2(0.5, 0.5)
+
+[node name="Mob3" parent="." instance=ExtResource("6_xynwx")]
+position = Vector2(9467, -76)
+scale = Vector2(0.5, 0.5)
+
+[node name="Mob4" parent="." instance=ExtResource("6_xynwx")]
+position = Vector2(10730, -70)
+scale = Vector2(0.5, 0.5)
+
+[node name="Mob5" parent="." instance=ExtResource("6_xynwx")]
+position = Vector2(9812, 569)
+scale = Vector2(0.5, 0.5)

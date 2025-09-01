@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var jump_force : float = 1200
 @export var gravity : float = 25
 @export var max_jump_count : int = 2
+@export var hp : int = 3
 var jump_count : int = 2
 
 
@@ -27,7 +28,6 @@ func _process(_delta):
 	movement()
 	player_animations()
 	flip_player()
-	print("Current Scale: ", self.scale)
 	
 # --------- CUSTOM FUNCTIONS ---------- #
 
@@ -82,5 +82,14 @@ func flip_player():
 
 # Reset the player's position to the current level spawn point if collided with any trap
 func _on_collision_body_entered(_body):
-	if _body.is_in_group("Traps"):
+	if _body.is_in_group("Mob"):
 		death_particles.emitting = true
+		get_tree().quit()
+		print("Die")
+
+
+func _on_collision_area_entered(area: Area2D) -> void:
+		if area.is_in_group("Mob"):
+			death_particles.emitting = true
+			get_tree().quit()
+			print("Die")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwx2r0my8r8qd"
-path="res://.godot/imported/spritesheet_characters.png-c3736fe182129c81dd8d8d00e7416ea7.ctex"
+uid="uid://cymowoj37rjli"
+path="res://.godot/imported/Mnormal.png-48704ad8fed928aa2f77c953f96a6b2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spritesheet_characters.png"
-dest_files=["res://.godot/imported/spritesheet_characters.png-c3736fe182129c81dd8d8d00e7416ea7.ctex"]
+source_file="res://PNG/framanimetion/monster/Mnormal.png"
+dest_files=["res://.godot/imported/Mnormal.png-48704ad8fed928aa2f77c953f96a6b2b.ctex"]
 
 [params]
 
