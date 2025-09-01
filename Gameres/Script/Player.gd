@@ -103,6 +103,17 @@ func _on_collision_area_entered(area: Area2D) -> void: #Working code ///
 	if area.is_in_group("Door"):
 		get_tree().change_scene_to_file("res://Gameres/Scene/menu.tscn")
 		
+	if area.is_in_group("Door_map1"):
+		call_deferred("_change_scene", "res://Gameres/Scene/map_2.tscn")
+
+	if area.is_in_group("Door_map2"):
+		call_deferred("_change_scene", "res://Gameres/Scene/map_3.tscn")
+
+	if area.is_in_group("Checkpoint"):
+		var cp_marker = area.get_parent() as Marker2D
+		if cp_marker:
+			get_parent().update_spawn(cp_marker)
+		
 	if area.is_in_group("Checkpoint"):
 		#get_tree().quit()
 		var cp_marker = area.get_parent() as Marker2D
@@ -118,3 +129,6 @@ func _check_death_or_respawn() -> void:
 
 func _update_hp_label() -> void:
 	hp_label.text = "HP: %d" % hp
+
+func _change_scene(path: String) -> void:
+	get_tree().change_scene_to_file(path)
