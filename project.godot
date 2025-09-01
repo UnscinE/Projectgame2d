@@ -11,6 +11,10 @@ config_version=5
 [application]
 
 config/name="Projectgame2d"
+<<<<<<< Updated upstream
 run/main_scene="uid://cswdfl5lf743v"
+=======
+run/main_scene="uid://chtu3o6rld7k3"
+>>>>>>> Stashed changes
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
