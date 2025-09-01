@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b0hinjnfcgsy7" path="res://PNG/Other/skybox_bottom.png" id="2_gc4qo"]
 [ext_resource type="Texture2D" uid="uid://bt01moeeedokm" path="res://PNG/Other/skybox_top.png" id="3_xynwx"]
 [ext_resource type="Texture2D" uid="uid://4c6vcwwi1hn" path="res://Vector/vector_other.svg" id="4_ihjbk"]
-[ext_resource type="PackedScene" uid="uid://bpqvqmu00jsk2" path="res://Gameres/Scene/player.tscn" id="5_gc4qo"]
+[ext_resource type="PackedScene" uid="uid://c7l7lf2fnbyr6" path="res://Gameres/Scene/player.tscn" id="5_gc4qo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mwb40"]
 
@@ -53,6 +53,7 @@ texture_region_size = Vector2i(128, 128)
 0:4/0 = 0
 1:4/0 = 0
 2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 3:4/0 = 0
 3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 4:4/0 = 0
