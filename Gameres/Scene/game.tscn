@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://cswdfl5lf743v"]
+[gd_scene load_steps=17 format=3 uid="uid://cswdfl5lf743v"]
 
+[ext_resource type="Script" uid="uid://b3bpnepjf86wg" path="res://Gameres/Scene/game.gd" id="1_ihjbk"]
 [ext_resource type="Texture2D" uid="uid://fj1psxds0hvj" path="res://Spritesheets/spritesheet_tiles.png" id="1_odxwo"]
 [ext_resource type="Texture2D" uid="uid://b0hinjnfcgsy7" path="res://PNG/Other/skybox_bottom.png" id="2_gc4qo"]
 [ext_resource type="Texture2D" uid="uid://bt01moeeedokm" path="res://PNG/Other/skybox_top.png" id="3_xynwx"]
@@ -151,7 +152,11 @@ size = Vector2(175, 279.375)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihjbk"]
 size = Vector2(24990.1, 951.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_capl4"]
+size = Vector2(66.0005, 263)
+
 [node name="Game" type="Node2D"]
+script = ExtResource("1_ihjbk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mwb40")
@@ -191,8 +196,53 @@ drag_bottom_margin = 0.4
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="killzone" parent="." instance=ExtResource("6_xynwx")]
+[node name="killzone" parent="." groups=["Lava"] instance=ExtResource("6_xynwx")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 position = Vector2(9578.94, 1679)
 shape = SubResource("RectangleShape2D_ihjbk")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(-23.475, 114.178)
+
+[node name="Checkpoint" type="Node2D" parent="."]
+
+[node name="cp1" type="Marker2D" parent="Checkpoint"]
+position = Vector2(3807, 151)
+
+[node name="Checkpoint" type="Area2D" parent="Checkpoint/cp1" groups=["Checkpoint"]]
+position = Vector2(-334.475, -112.822)
+
+[node name="1" type="CollisionShape2D" parent="Checkpoint/cp1/Checkpoint" groups=["Checkpoint"]]
+position = Vector2(335.475, 152.822)
+shape = SubResource("RectangleShape2D_capl4")
+
+[node name="cp2" type="Marker2D" parent="Checkpoint"]
+position = Vector2(5852, 18)
+
+[node name="Checkpoint" type="Area2D" parent="Checkpoint/cp2" groups=["Checkpoint"]]
+position = Vector2(-334.475, -112.822)
+
+[node name="2" type="CollisionShape2D" parent="Checkpoint/cp2/Checkpoint" groups=["Checkpoint"]]
+position = Vector2(335.475, 152.822)
+shape = SubResource("RectangleShape2D_capl4")
+
+[node name="cp3" type="Marker2D" parent="Checkpoint"]
+position = Vector2(7710, -233)
+
+[node name="Checkpoint" type="Area2D" parent="Checkpoint/cp3" groups=["Checkpoint"]]
+position = Vector2(-334.475, -112.822)
+
+[node name="3" type="CollisionShape2D" parent="Checkpoint/cp3/Checkpoint" groups=["Checkpoint"]]
+position = Vector2(335.475, 152.822)
+shape = SubResource("RectangleShape2D_capl4")
+
+[node name="cp4" type="Marker2D" parent="Checkpoint"]
+position = Vector2(13343, -110)
+
+[node name="Checkpoint" type="Area2D" parent="Checkpoint/cp4" groups=["Checkpoint"]]
+position = Vector2(-334.475, -112.822)
+
+[node name="4" type="CollisionShape2D" parent="Checkpoint/cp4/Checkpoint" groups=["Checkpoint"]]
+position = Vector2(335.475, 152.822)
+shape = SubResource("RectangleShape2D_capl4")
