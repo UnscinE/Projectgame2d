@@ -46,6 +46,7 @@ height = 229.323
 size = Vector2(64.2836, 161.343)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_xw558")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

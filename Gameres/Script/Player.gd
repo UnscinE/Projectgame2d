@@ -3,8 +3,8 @@ extends CharacterBody2D
 # --------- VARIABLES ---------- #
 
 @export_category("Player Properties") # You can tweak these changes according to your likings
-@export var move_speed : float = 800
-@export var jump_force : float = 1600
+@export var move_speed : float = 600
+@export var jump_force : float = 1200
 @export var gravity : float = 25
 @export var max_jump_count : int = 2
 var jump_count : int = 2
@@ -27,6 +27,7 @@ func _process(_delta):
 	movement()
 	player_animations()
 	flip_player()
+	print("Current Scale: ", self.scale)
 	
 # --------- CUSTOM FUNCTIONS ---------- #
 
@@ -56,7 +57,6 @@ func handle_jumping():
 
 # Player jump
 func jump():
-	jump_tween()
 	velocity.y = -jump_force
 
 # Handle Player Animations
@@ -77,24 +77,6 @@ func flip_player():
 	elif velocity.x > 0:
 		player_sprite.flip_h = false
 
-# Tween Animations
-func death_tween():
-	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector2.ZERO, 0.15)
-	await tween.finished
-	global_position = spawn_point.global_position
-	await get_tree().create_timer(0.3).timeout
-	respawn_tween()
-
-func respawn_tween():
-	var tween = create_tween()
-	tween.stop(); tween.play()
-	tween.tween_property(self, "scale", Vector2.ONE, 0.15) 
-
-func jump_tween():
-	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector2(0.7, 1.4), 0.1)
-	tween.tween_property(self, "scale", Vector2.ONE, 0.1)
 
 # --------- SIGNALS ---------- #
 
@@ -102,4 +84,3 @@ func jump_tween():
 func _on_collision_body_entered(_body):
 	if _body.is_in_group("Traps"):
 		death_particles.emitting = true
-		death_tween()
