@@ -3,8 +3,8 @@ extends CharacterBody2D
 # --------- VARIABLES ---------- #
 
 @export_category("Player Properties") # You can tweak these changes according to your likings
-@export var move_speed : float = 2400
-@export var jump_force : float = 1600
+@export var move_speed : float = 800
+@export var jump_force : float = 1200
 @export var gravity : float = 25
 @export var max_jump_count : int = 20
 var jump_count : int = 2
@@ -15,6 +15,7 @@ var jump_count : int = 2
 
 var is_grounded : bool = false
 
+@onready var audio = %AudioManager
 @onready var player_sprite = $AnimatedSprite2D
 @onready var particle_trails = $ParticleTrails
 @onready var death_particles = $DeathParticles
@@ -26,7 +27,6 @@ func _process(_delta):
 	movement()
 	player_animations()
 	flip_player()
-	print("Current Scale: ", self.scale)
 	
 # --------- CUSTOM FUNCTIONS ---------- #
 
@@ -56,13 +56,15 @@ func handle_jumping():
 
 # Player jump
 func jump():
+	AudioManager.jump.play()
 	velocity.y = -jump_force
-
+	
 # Handle Player Animations
 func player_animations():
 	
 	if is_on_floor():
 		if abs(velocity.x) > 0:
+			AudioManager.walk.play()
 			player_sprite.play("Walk", 1.5)
 		else:
 			player_sprite.play("Idle")
