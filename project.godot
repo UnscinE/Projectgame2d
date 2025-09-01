@@ -11,12 +11,8 @@ config_version=5
 [application]
 
 config/name="Projectgame2d"
-<<<<<<< Updated upstream
-run/main_scene="uid://bvyq28bxay8aa"
-=======
-run/main_scene="uid://cswdfl5lf743v"
->>>>>>> Stashed changes
-config/features=PackedStringArray("4.4", "Forward Plus")
+run/main_scene="uid://cbav7soljajvt"
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
@@ -24,6 +20,11 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
+
+[global_group]
+
+Lava=""
+Door=""
 
 [input]
 

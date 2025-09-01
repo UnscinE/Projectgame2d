@@ -3,20 +3,19 @@ extends CharacterBody2D
 # --------- VARIABLES ---------- #
 
 @export_category("Player Properties") # You can tweak these changes according to your likings
-@export var move_speed : float = 600
-@export var jump_force : float = 1200
+@export var move_speed : float = 2400
+@export var jump_force : float = 1600
 @export var gravity : float = 25
-@export var max_jump_count : int = 2
+@export var max_jump_count : int = 20
 var jump_count : int = 2
 
 
 @export_category("Toggle Functions") # Double jump feature is disable by default (Can be toggled from inspector)
-@export var double_jump : = false
+@export var double_jump : = true
 
 var is_grounded : bool = false
 
 @onready var player_sprite = $AnimatedSprite2D
-@onready var spawn_point = %SpawnPoint
 @onready var particle_trails = $ParticleTrails
 @onready var death_particles = $DeathParticles
 
@@ -82,12 +81,19 @@ func flip_player():
 
 # Reset the player's position to the current level spawn point if collided with any trap
 func _on_collision_body_entered(_body):
-	if _body.is_in_group("Traps"):
+	if _body.is_in_group("Lava"):
 		death_particles.emitting = true
+
+
+func _on_collision_area_entered(area: Area2D) -> void: #Working code ///
+	if area.is_in_group("Lava"):
+		death_particles.emitting = true
+		get_parent().respawn_player()
+	if area.is_in_group("Door"):
+		get_tree().quit()
 		
-		# Optional: slow motion สั้น ๆ ก่อนรีสตาร์ท
-		Engine.time_scale = 0.2
-		await get_tree().create_timer(0.5, false, true).timeout
-		Engine.time_scale = 1.0
-		
-		get_tree().reload_current_scene()
+	if area.is_in_group("Checkpoint"):
+		#get_tree().quit()
+		var cp_marker = area.get_parent() as Marker2D
+		if cp_marker:
+			get_parent().update_spawn(cp_marker)
