@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5ejoimtfybm7"]
+
+[ext_resource type="Script" uid="uid://xhm52xd3m34x" path="res://Gameres/Script/AudioManager.gd" id="1_jp4oq"]
+[ext_resource type="AudioStream" uid="uid://b2hpmewx304fs" path="res://Effect/bg_music.MP3" id="2_lmxwt"]
+[ext_resource type="AudioStream" uid="uid://bpyb2a8uahrfq" path="res://Effect/walk.mp3" id="3_cv7xm"]
+[ext_resource type="AudioStream" uid="uid://cr1w0uiuh7t3c" path="res://Effect/game-over.mp3" id="4_i2ndv"]
+[ext_resource type="AudioStream" uid="uid://bfw8vsqtrcyb8" path="res://Effect/jump.mp3" id="5_ooq6m"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_jp4oq")
+
+[node name="AudioStreamPlayer_bg" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lmxwt")
+autoplay = true
+parameters/looping = true
+
+[node name="AudioStreamPlayer_walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cv7xm")
+
+[node name="AudioStreamPlayer_game_over" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_i2ndv")
+
+[node name="AudioStreamPlayer_jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ooq6m")

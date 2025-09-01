@@ -15,6 +15,10 @@ run/main_scene="uid://cbav7soljajvt"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AudioManager="*res://Gameres/Scene/AudioManager.tscn"
+
 [display]
 
 window/size/viewport_width=1920
