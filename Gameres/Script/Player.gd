@@ -18,8 +18,12 @@ var is_grounded : bool = false
 @onready var player_sprite = $AnimatedSprite2D
 @onready var particle_trails = $ParticleTrails
 @onready var death_particles = $DeathParticles
+@onready var hp: int = 3
+@onready var hp_label: Label = $Label  # get the label node
 
 # --------- BUILT-IN FUNCTIONS ---------- #
+func _ready() -> void:
+	_update_hp_label()
 
 func _process(_delta):
 	# Calling functions
@@ -87,13 +91,30 @@ func _on_collision_body_entered(_body):
 
 func _on_collision_area_entered(area: Area2D) -> void: #Working code ///
 	if area.is_in_group("Lava"):
-		death_particles.emitting = true
-		get_parent().respawn_player()
+		hp -= 1
+		_update_hp_label()
+		_check_death_or_respawn()
+
+	elif area.is_in_group("Mob"):
+		hp -= 1
+		_update_hp_label()
+		_check_death_or_respawn()
+
 	if area.is_in_group("Door"):
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://Gameres/Scene/menu.tscn")
 		
 	if area.is_in_group("Checkpoint"):
 		#get_tree().quit()
 		var cp_marker = area.get_parent() as Marker2D
 		if cp_marker:
 			get_parent().update_spawn(cp_marker)
+			
+func _check_death_or_respawn() -> void:
+	if hp == 0:
+		get_tree().change_scene_to_file("res://Gameres/Scene/gameoverscene.tscn")
+	else:
+		get_parent().respawn_player()
+		death_particles.emitting = false
+
+func _update_hp_label() -> void:
+	hp_label.text = "HP: %d" % hp

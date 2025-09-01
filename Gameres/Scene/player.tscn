@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7l7lf2fnbyr6"]
+[gd_scene load_steps=9 format=3 uid="uid://c7l7lf2fnbyr6"]
 
 [ext_resource type="Texture2D" uid="uid://hln585w4y0vv" path="res://PNG/framanimetion/playfram/main.png" id="1_02a1m"]
 [ext_resource type="Script" uid="uid://dmrpmvwq73svv" path="res://Gameres/Script/Player.gd" id="1_xw558"]
 [ext_resource type="Texture2D" uid="uid://cxrwwf0luvlrx" path="res://PNG/framanimetion/playfram/walk2.png" id="2_u2hmk"]
 [ext_resource type="Texture2D" uid="uid://dduuh3x40b7ow" path="res://PNG/framanimetion/playfram/walk.png" id="3_hjteh"]
+[ext_resource type="FontFile" uid="uid://b7lbjlpjjfxgq" path="res://Font/TA 8 bit_Free Donate/TA 8 bit.ttf" id="5_h3f2y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jiwmj"]
 animations = [{
@@ -67,6 +68,17 @@ scale = Vector2(1.33782, 1.56189)
 shape = SubResource("RectangleShape2D_igvk4")
 
 [node name="DeathParticles" type="CPUParticles2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -66.0
+offset_top = -212.0
+offset_right = 65.0
+offset_bottom = -124.0
+theme_override_fonts/font = ExtResource("5_h3f2y")
+theme_override_font_sizes/font_size = 64
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="Collision" to="." method="_on_collision_area_entered"]
 [connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]
