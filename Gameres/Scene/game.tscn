@@ -7113,7 +7113,7 @@ sources/3 = SubResource("TileSetAtlasSource_8u3a0")
 sprite_frames = SubResource("SpriteFrames_mwb40")
 frame_progress = 0.333658
 
-[node name="Level_0" type="TileMap" parent="."]
+[node name="Level_1" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_y45h8")
 format = 2
 layer_0/name = "Background"
