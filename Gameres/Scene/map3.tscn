@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=3 format=4 uid="uid://bu4hv6tvywcrt"]
+=======
+[gd_scene load_steps=3 format=4 uid="uid://bkshyrcqhpr6w"]
+>>>>>>> Stashed changes
 
 [ext_resource type="TileSet" uid="uid://dxk0j314lhc4x" path="res://Gameres/Spritesheet/map_tile_set.tres" id="1_iv4ga"]
 [ext_resource type="PackedScene" uid="uid://c7l7lf2fnbyr6" path="res://Gameres/Scene/player.tscn" id="2_ghp3a"]
