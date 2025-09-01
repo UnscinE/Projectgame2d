@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cswdfl5lf743v"]
+[gd_scene load_steps=14 format=3 uid="uid://cswdfl5lf743v"]
 
 [ext_resource type="Texture2D" uid="uid://fj1psxds0hvj" path="res://Spritesheets/spritesheet_tiles.png" id="1_odxwo"]
 [ext_resource type="Texture2D" uid="uid://b0hinjnfcgsy7" path="res://PNG/Other/skybox_bottom.png" id="2_gc4qo"]
 [ext_resource type="Texture2D" uid="uid://bt01moeeedokm" path="res://PNG/Other/skybox_top.png" id="3_xynwx"]
 [ext_resource type="Texture2D" uid="uid://4c6vcwwi1hn" path="res://Vector/vector_other.svg" id="4_ihjbk"]
 [ext_resource type="PackedScene" uid="uid://c7l7lf2fnbyr6" path="res://Gameres/Scene/player.tscn" id="5_gc4qo"]
+[ext_resource type="PackedScene" uid="uid://br8tqgrqn8mf3" path="res://Gameres/Scene/killzone.tscn" id="6_xynwx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mwb40"]
 
@@ -144,6 +145,9 @@ sources/1 = SubResource("TileSetAtlasSource_gc4qo")
 sources/2 = SubResource("TileSetAtlasSource_xynwx")
 sources/3 = SubResource("TileSetAtlasSource_ihjbk")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihjbk"]
+size = Vector2(24990.1, 951.5)
+
 [node name="Game" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -176,3 +180,9 @@ drag_right_margin = 0.4
 drag_bottom_margin = 0.4
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="killzone" parent="." instance=ExtResource("6_xynwx")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(9578.94, 1679)
+shape = SubResource("RectangleShape2D_ihjbk")
