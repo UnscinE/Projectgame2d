@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=3 uid="uid://bq8e4hre0m3x"]
+
+[ext_resource type="FontFile" uid="uid://caegfwekxondt" path="res://Font/TA 8 bit_Free Donate/TA 8 bit.otf" id="1_rmfew"]
+[ext_resource type="Script" uid="uid://d3wv1qp5cqvrd" path="res://Gameres/Script/menu.gd" id="1_utwwa"]
+[ext_resource type="Texture2D" uid="uid://bwmw05ixhscct" path="res://PNG/background/background_game.png" id="3_bg3oo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fo2m"]
+bg_color = Color(0.266667, 0.266667, 0.266667, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdxhw"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ncimh"]
+bg_color = Color(0.996078, 0.262745, 0.211765, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg3oo"]
+bg_color = Color(0.823529, 0, 0.0745098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_utwwa")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_bg3oo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Exit" type="Button" parent="CanvasLayer"]
+offset_left = 720.0
+offset_top = 820.0
+offset_right = 1200.0
+offset_bottom = 872.0
+theme_override_fonts/font = ExtResource("1_rmfew")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = SubResource("StyleBoxFlat_2fo2m")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wdxhw")
+text = "Exit"
+
+[node name="Logo" type="Label" parent="CanvasLayer"]
+offset_left = 210.0
+offset_top = 222.0
+offset_right = 1710.0
+offset_bottom = 582.0
+theme_override_colors/font_color = Color(0.992157, 0.937255, 0.784314, 1)
+theme_override_colors/font_shadow_color = Color(0.996078, 0.505882, 0.219608, 1)
+theme_override_constants/line_spacing = 10
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("1_rmfew")
+theme_override_font_sizes/font_size = 240
+text = "เกมอะไร !?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="CanvasLayer"]
+offset_left = 720.0
+offset_top = 720.0
+offset_right = 1200.0
+offset_bottom = 800.0
+theme_override_fonts/font = ExtResource("1_rmfew")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/hover = SubResource("StyleBoxFlat_ncimh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bg3oo")
+text = "Start"
+
+[node name="Marker2D" type="Marker2D" parent="CanvasLayer"]
+position = Vector2(960, 540)
+
+[connection signal="pressed" from="CanvasLayer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Start" to="." method="_on_start_pressed"]
