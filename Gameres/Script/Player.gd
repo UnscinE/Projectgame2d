@@ -84,3 +84,10 @@ func flip_player():
 func _on_collision_body_entered(_body):
 	if _body.is_in_group("Traps"):
 		death_particles.emitting = true
+		
+		# Optional: slow motion สั้น ๆ ก่อนรีสตาร์ท
+		Engine.time_scale = 0.2
+		await get_tree().create_timer(0.5, false, true).timeout
+		Engine.time_scale = 1.0
+		
+		get_tree().reload_current_scene()
