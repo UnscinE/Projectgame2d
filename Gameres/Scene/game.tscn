@@ -280,14 +280,44 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(16780, -127)
 scale = Vector2(0.5, 0.5)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 237.0
-offset_top = 42.0
-offset_right = 754.0
-offset_bottom = 133.0
+[node name="StoryGame" type="Label" parent="."]
+offset_left = 240.0
+offset_top = 63.0
+offset_right = 757.0
+offset_bottom = 154.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.767848, 0.845673, 1, 1)
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("9_s7hdq")
 theme_override_font_sizes/font_size = 32
 text = "โลกนี้จะแตกแล้ว 
 ฉันต้องรีบไปช่วยแฟนสาว"
 horizontal_alignment = 1
+
+[node name="Note Enemy" type="Label" parent="."]
+offset_left = 2270.0
+offset_top = -104.0
+offset_right = 2787.0
+offset_bottom = -13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.767848, 0.845673, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_s7hdq")
+theme_override_font_sizes/font_size = 32
+text = "ฉันต้องระวังไม่ให้โดนพวกคนประหลาด"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Door" type="Label" parent="."]
+offset_left = 19552.0
+offset_top = -279.0
+offset_right = 20069.0
+offset_bottom = -188.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.767848, 0.845673, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_s7hdq")
+theme_override_font_sizes/font_size = 32
+text = "อุโมงเชื่อมอีกสถานที่"
+horizontal_alignment = 1
+vertical_alignment = 1

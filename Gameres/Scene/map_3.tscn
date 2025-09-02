@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=4 uid="uid://dl13bfr0t42ru"]
 
-[ext_resource type="Script" path="res://Gameres/Script/map_3.gd" id="1_6mne8"]
+[ext_resource type="Script" uid="uid://coun8sfrwb40h" path="res://Gameres/Script/map_3.gd" id="1_6mne8"]
 [ext_resource type="Texture2D" uid="uid://b0efkmjxthlg0" path="res://PNG/Other/skybox_sideHills.png" id="1_607ru"]
 [ext_resource type="TileSet" uid="uid://dxk0j314lhc4x" path="res://Gameres/Spritesheet/map_tile_set.tres" id="2_6mne8"]
 [ext_resource type="PackedScene" uid="uid://c7l7lf2fnbyr6" path="res://Gameres/Scene/player.tscn" id="3_8eavu"]
