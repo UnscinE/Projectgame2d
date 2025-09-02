@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export_category("Player Properties") # You can tweak these changes according to your likings
 @export var move_speed : float = 600
-@export var jump_force : float = 1000
+@export var jump_force : float = 1200
 @export var gravity : float = 25
 @export var max_jump_count : int = 2
 var jump_count : int = 2
@@ -15,12 +15,27 @@ var jump_count : int = 2
 
 var is_grounded : bool = false
 
+var hp:int = 3
 @onready var audio = %AudioManager
 @onready var player_sprite = $AnimatedSprite2D
 @onready var particle_trails = $ParticleTrails
 @onready var death_particles = $DeathParticles
+@onready var hp_label: Label = $Label
 
 # --------- BUILT-IN FUNCTIONS ---------- #
+func _ready() -> void:
+	_update_hp_label()
+
+func _update_hp_label() -> void:
+	hp_label.text = "HP: %d" % hp
+
+func _check_death_or_respawn() -> void:
+	if hp <= 0:
+		AudioManager.play_game_over()
+		get_tree().change_scene_to_file("res://Gameres/Scene/gameoverscene.tscn")
+	else:
+		get_parent().respawn_player()
+		death_particles.emitting = false
 
 func _process(_delta):
 	# Calling functions
@@ -86,13 +101,21 @@ func _on_collision_body_entered(_body):
 	if _body.is_in_group("Lava"):
 		death_particles.emitting = true
 
-
 func _on_collision_area_entered(area: Area2D) -> void: #Working code ///
 	if area.is_in_group("Lava"):
 		death_particles.emitting = true
-		get_parent().respawn_player()
+		hp -= 1
+		_update_hp_label()
+		_check_death_or_respawn()
+	
+	elif area.is_in_group("Mob"):
+		hp -= 1
+		_update_hp_label()
+		_check_death_or_respawn()
+	
 	if area.is_in_group("Door"):
-		get_tree().quit()
+		AudioManager.stop_bg()
+		get_tree().change_scene_to_file("res://Gameres/Scene/win.tscn")
 		
 	if area.is_in_group("Door_map1"):
 		call_deferred("_change_scene", "res://Gameres/Scene/map_2.tscn")
@@ -101,19 +124,10 @@ func _on_collision_area_entered(area: Area2D) -> void: #Working code ///
 		call_deferred("_change_scene", "res://Gameres/Scene/map_3.tscn")
 
 	if area.is_in_group("Checkpoint"):
+		AudioManager.checkpoint()
 		var cp_marker = area.get_parent() as Marker2D
 		if cp_marker:
 			get_parent().update_spawn(cp_marker)
-		
-	if area.is_in_group("Checkpoint"):
-		#get_tree().quit()
-		var cp_marker = area.get_parent() as Marker2D
-		if cp_marker:
-			get_parent().update_spawn(cp_marker)
-			
-	if area.is_in_group("Mob"):
-		death_particles.emitting = true
-		get_parent().respawn_player()
 
 func _change_scene(path: String) -> void:
 	get_tree().change_scene_to_file(path)

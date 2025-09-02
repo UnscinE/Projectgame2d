@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5ejoimtfybm7"]
+[gd_scene load_steps=7 format=3 uid="uid://c5ejoimtfybm7"]
 
 [ext_resource type="Script" uid="uid://xhm52xd3m34x" path="res://Gameres/Script/AudioManager.gd" id="1_jp4oq"]
 [ext_resource type="AudioStream" uid="uid://b2hpmewx304fs" path="res://Effect/bg_music.MP3" id="2_lmxwt"]
 [ext_resource type="AudioStream" uid="uid://bpyb2a8uahrfq" path="res://Effect/walk.mp3" id="3_cv7xm"]
 [ext_resource type="AudioStream" uid="uid://cr1w0uiuh7t3c" path="res://Effect/game-over.mp3" id="4_i2ndv"]
 [ext_resource type="AudioStream" uid="uid://bfw8vsqtrcyb8" path="res://Effect/jump.mp3" id="5_ooq6m"]
+[ext_resource type="AudioStream" uid="uid://dwu1c0mnkwv6i" path="res://Effect/PowerUp.MP3" id="6_cv7xm"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_jp4oq")
@@ -22,3 +23,6 @@ stream = ExtResource("4_i2ndv")
 
 [node name="AudioStreamPlayer_jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ooq6m")
+
+[node name="AudioStreamPlayer_Checkpoint" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cv7xm")

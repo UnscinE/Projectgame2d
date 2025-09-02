@@ -1,6 +1,7 @@
-extends Node2D
+extends CharacterBody2D
 
 @export var speed: float = 60.0
+@export var gravity: float = 900
 @export var start_facing_right := true
 @export var flip_sprite := true
 @export var turn_cooldown := 0.12
@@ -8,7 +9,6 @@ extends Node2D
 @onready var rc_right: RayCast2D = $RayCastRight
 @onready var rc_left:  RayCast2D = $RayCastLeft
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-
 var dir := 1
 var turn_lock := 0.0
 
@@ -18,6 +18,14 @@ func _ready() -> void:
 		sprite.flip_h = (dir == -1) # หันซ้ายเมื่อ dir = -1
 	if sprite and sprite.has_method("play"):
 		sprite.play()
+
+func _physics_process(delta: float) -> void:
+	# Apply gravity
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	else:
+		velocity.y = 0
+	move_and_slide()
 
 func _process(delta: float) -> void:
 	if turn_lock > 0.0:

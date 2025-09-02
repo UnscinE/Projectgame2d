@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://gbqu4w42nar4"]
+[gd_scene load_steps=8 format=3 uid="uid://gbqu4w42nar4"]
 
 [ext_resource type="Texture2D" uid="uid://c5w0s11utjvgl" path="res://PNG/framanimetion/monster/Mwalk1.png" id="1_4vc3f"]
 [ext_resource type="Script" uid="uid://bcutq04d5q3tx" path="res://Gameres/Script/enemy_1.gd" id="1_lh8gg"]
@@ -25,7 +25,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ooxo2"]
 size = Vector2(87, 241)
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lh8gg"]
+radius = 23.0
+height = 236.0
+
+[node name="Node2D" type="CharacterBody2D"]
 script = ExtResource("1_lh8gg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -33,16 +37,20 @@ scale = Vector2(0.36, 0.36)
 sprite_frames = SubResource("SpriteFrames_umx1s")
 animation = &"Walk"
 
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-90, 0)
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(83, 0)
+
 [node name="Killzone" type="Area2D" parent="." groups=["Mob"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(7.5, 4.5)
 shape = SubResource("RectangleShape2D_ooxo2")
 
-[node name="RayCastLeft" type="RayCast2D" parent="."]
-target_position = Vector2(-90, 0)
-
-[node name="RayCastRight" type="RayCast2D" parent="."]
-target_position = Vector2(83, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 7)
+shape = SubResource("CapsuleShape2D_lh8gg")
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

@@ -187,17 +187,8 @@ position = Vector2(59, 186)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = 0
-limit_bottom = 1080
 limit_smoothed = true
 position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.4
-drag_top_margin = 0.4
-drag_right_margin = 0.4
-drag_bottom_margin = 0.4
-editor_draw_limits = true
-editor_draw_drag_margin = true
 
 [node name="killzone" parent="." groups=["Lava"] instance=ExtResource("6_xynwx")]
 
@@ -321,3 +312,16 @@ theme_override_font_sizes/font_size = 32
 text = "อุโมงเชื่อมอีกสถานที่"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+limit_left = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.4
+drag_top_margin = 0.4
+drag_right_margin = 0.4
+drag_bottom_margin = 0.4
+editor_draw_limits = true

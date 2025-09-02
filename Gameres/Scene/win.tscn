@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://s80tnx0w1rw1"]
+
+[ext_resource type="Script" uid="uid://bkvebylv61fdf" path="res://Gameres/Script/win.gd" id="1_8dsxp"]
+[ext_resource type="Texture2D" uid="uid://qqbyvx3up11r" path="res://PNG/background/coin.png" id="1_jywlu"]
+
+[node name="Win" type="Node2D"]
+script = ExtResource("1_8dsxp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(961, 540)
+texture = ExtResource("1_jywlu")

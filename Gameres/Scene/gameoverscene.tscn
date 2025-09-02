@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbav7soljajvt"]
 
 [ext_resource type="Texture2D" uid="uid://cctkp1xoax42g" path="res://PNG/background/pixel background in .png" id="1_02ty8"]
-[ext_resource type="Script" uid="uid://d2xl8oekq7chw" path="res://Gameres/Scene/gameoverscene.gd" id="1_jafvf"]
+[ext_resource type="Script" uid="uid://d2xl8oekq7chw" path="res://Gameres/Script/gameoverscene.gd" id="1_jafvf"]
 [ext_resource type="FontFile" uid="uid://b7lbjlpjjfxgq" path="res://Font/TA 8 bit_Free Donate/TA 8 bit.ttf" id="2_jafvf"]
 
 [node name="Gameoverscene" type="Node2D"]
 script = ExtResource("1_jafvf")
 
 [node name="PixelBackgroundIn" type="Sprite2D" parent="."]
-position = Vector2(954.00006, 529)
-scale = Vector2(1.8828125, 1.2202147)
+position = Vector2(954, 529)
+scale = Vector2(1.88281, 1.22021)
 texture = ExtResource("1_02ty8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
