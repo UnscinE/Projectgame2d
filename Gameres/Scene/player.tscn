@@ -67,6 +67,15 @@ scale = Vector2(1.33782, 1.56189)
 shape = SubResource("RectangleShape2D_igvk4")
 
 [node name="DeathParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+lifetime = 0.6
+one_shot = true
+speed_scale = 1.2
+explosiveness = 1.0
+lifetime_randomness = 0.4
+emission_shape = 2
+emission_sphere_radius = 50.0
 
 [connection signal="area_entered" from="Collision" to="." method="_on_collision_area_entered"]
 [connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]

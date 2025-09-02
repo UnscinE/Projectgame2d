@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://dl13bfr0t42ru"]
+[gd_scene load_steps=18 format=4 uid="uid://dl13bfr0t42ru"]
 
-[ext_resource type="Script" uid="uid://coun8sfrwb40h" path="res://Gameres/Script/map_3.gd" id="1_6mne8"]
+[ext_resource type="Script" path="res://Gameres/Script/map_3.gd" id="1_6mne8"]
 [ext_resource type="Texture2D" uid="uid://b0efkmjxthlg0" path="res://PNG/Other/skybox_sideHills.png" id="1_607ru"]
 [ext_resource type="TileSet" uid="uid://dxk0j314lhc4x" path="res://Gameres/Spritesheet/map_tile_set.tres" id="2_6mne8"]
 [ext_resource type="PackedScene" uid="uid://c7l7lf2fnbyr6" path="res://Gameres/Scene/player.tscn" id="3_8eavu"]
+[ext_resource type="PackedScene" uid="uid://gbqu4w42nar4" path="res://Gameres/Scene/enemy_1.tscn" id="5_8eavu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iv4ga"]
 size = Vector2(175, 385.5)
@@ -118,18 +119,17 @@ shape = SubResource("RectangleShape2D_8eavu")
 
 [node name="Player" parent="." instance=ExtResource("3_8eavu")]
 z_index = 2
-position = Vector2(477, 97)
+position = Vector2(306, 219)
 scale = Vector2(1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-0.14447, -1.03)
 scale = Vector2(2, 2)
 offset = Vector2(64, 0)
-zoom = Vector2(0.75, 0.75)
 limit_left = 0
+limit_bottom = 1080
 limit_smoothed = true
 position_smoothing_enabled = true
-position_smoothing_speed = 2.745
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(311, 227)
@@ -185,5 +185,25 @@ position = Vector2(-334.475, -112.822)
 [node name="1" type="CollisionShape2D" parent="Checkpoint/cp5/Checkpoint" groups=["Checkpoint"]]
 position = Vector2(304.24, 117.632)
 shape = SubResource("RectangleShape2D_6mne8")
+
+[node name="Enemy" type="Node" parent="."]
+
+[node name="Mob1" parent="Enemy" instance=ExtResource("5_8eavu")]
+position = Vector2(19405, 4981)
+
+[node name="Mob2" parent="Enemy" instance=ExtResource("5_8eavu")]
+position = Vector2(22098, 4976)
+
+[node name="Mob3" parent="Enemy" instance=ExtResource("5_8eavu")]
+position = Vector2(29858, 1403)
+
+[node name="Mob4" parent="Enemy" instance=ExtResource("5_8eavu")]
+position = Vector2(15091, 1785)
+
+[node name="Mob5" parent="Enemy" instance=ExtResource("5_8eavu")]
+position = Vector2(11599, 5107)
+
+[node name="Mob6" parent="Enemy" instance=ExtResource("5_8eavu")]
+position = Vector2(2570, 1002)
 
 [connection signal="area_shape_entered" from="Lava" to="." method="_on_lava_area_shape_entered"]

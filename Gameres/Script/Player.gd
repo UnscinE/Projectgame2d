@@ -3,10 +3,10 @@ extends CharacterBody2D
 # --------- VARIABLES ---------- #
 
 @export_category("Player Properties") # You can tweak these changes according to your likings
-@export var move_speed : float = 800
-@export var jump_force : float = 1200
+@export var move_speed : float = 600
+@export var jump_force : float = 1000
 @export var gravity : float = 25
-@export var max_jump_count : int = 20
+@export var max_jump_count : int = 2
 var jump_count : int = 2
 
 
@@ -110,6 +110,10 @@ func _on_collision_area_entered(area: Area2D) -> void: #Working code ///
 		var cp_marker = area.get_parent() as Marker2D
 		if cp_marker:
 			get_parent().update_spawn(cp_marker)
+			
+	if area.is_in_group("Mob"):
+		death_particles.emitting = true
+		get_parent().respawn_player()
 
 func _change_scene(path: String) -> void:
 	get_tree().change_scene_to_file(path)
